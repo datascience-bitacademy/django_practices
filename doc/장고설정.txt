@@ -1,4 +1,4 @@
-장고 프로젝트(django_practices) 만들기
+[장고 프로젝트(django_practices) 만들기]
 
 1.
 PyCharm에서 django_practices 프로젝트 만들기
@@ -21,22 +21,37 @@ django-admin startproject django_practices)
 5. 디렉토리 정리
 
 6. settings.py 설정
-
     1) TIME_ZONE = 'Asia/Seoul'
     2) DATABASES = {
     	'default': {
  	        'ENGINE': 'django.db.backends.mysql',
-        	'NAME': 'djdb',
-        	'USER': 'djdb',
-        	'PASSWORD': 'djdb',
-        	'HOST': '127.0.0.1',
+        	'NAME': 'webdb',
+        	'USER': 'webdb',
+        	'PASSWORD': 'webdb',
+        	'HOST': '192.168.1.134',
         	'PORT': 3306
     		}
 	}
 
-7. 기본적으로 장고 프로젝트가 관리하는 테이블을 생성
+7.
+기본적으로 장고 프로젝트가 관리하는 테이블을 생성
+터미널에서
+python manage.py migrate
+
+8.
+장고 프로젝트 관리 애플리케이션의 관리자 계정 생성하기
+터미널에서
+python manage.py createsuperuser
+
+9. 지금까지 작업 내용 확인하기
+1) 서버 시작하기
    터미널에서
-   python manage.py migrate
+   # python manage.py runserver 0.0.0.0:9999
+2) 브라우저에서
+   http://127.0.0.1:8888 로 접근
 
 
+=======================================================================================================================
+
+[장고 프로젝트의 Application 만들기]
 
