@@ -1,3 +1,12 @@
-from django.test import TestCase
+# from django.test import TestCase  (Django TDD)
+import guestbook.models as guestbookmodel
 
-# Create your tests here.
+
+def test_guestbookmodel_fetchlist():
+    results = guestbookmodel.fetchlist()
+    print(results)
+
+
+test_guestbookmodel_fetchlist()
+
+
