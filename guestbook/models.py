@@ -12,9 +12,9 @@ def fetchlist():
           select no,
                  name,
                  message,
-                 date_format(reg_date, '%Y-%m-%d %h:%i:%s') as reg_date
+                 date_format(reg_date, '%Y-%m-%d %p %h:%i:%s') as reg_date
             from guestbook
-        order by reg_date desc
+        order by no desc
     '''
     cursor.execute(sql)
     results = cursor.fetchall()
@@ -24,6 +24,23 @@ def fetchlist():
     conn.close()
 
     return results
+
+
+def insert(name, password, message):
+    conn = getconnection()
+    cursor = conn.cursor()
+
+    sql = '''
+        insert
+          into guestbook
+        values (null, %s, %s, %s, now())
+    '''
+    cursor.execute(sql, (name, password, message))
+    conn.commit()
+
+    # 자원 정리
+    cursor.close()
+    conn.close()
 
 
 def getconnection():
